@@ -1,3 +1,18 @@
+var margin = {top: 120, right: 0, bottom: 10, left: 250},
+    width = 720,
+    height = 720;
+
+var x = d3.scale.ordinal().rangeBands([0, width]),
+    y = d3.scale.ordinal().rangeBands([height, 0]),
+    z = d3.scale.linear().domain([0, 15]).clamp(true),
+    c = d3.scale.category10().domain(d3.range(10));
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
 d3.json("https://api.github.com/SteveFiff/BusMatrixPilotDemo/blob/master/data.json",function(miserables) {
   
     var matrix = [],
