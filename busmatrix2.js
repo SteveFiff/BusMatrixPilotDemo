@@ -1,38 +1,3 @@
-<script src="https://d3js.org/d3.v3.min.js"></script>
-
-
-
- <h1><i>Busmatrix</i> Demo</h1> 
-
-<aside style="margin-top:80px;">
-<p>Order: <select id="order">
-  <option value="count">by Frequency</option>
-  <option value="group">by Cube</option>
-</select>
-
-<p> Each colored cell represents a cube.
-
-<p> Use the drop-down menu to reorder the matrix and explore the data.
-
-</aside>
-
-<script>
-
-var margin = {top: 120, right: 0, bottom: 10, left: 250},
-    width = 720,
-    height = 720;
-
-var x = d3.scale.ordinal().rangeBands([0, width]),
-    y = d3.scale.ordinal().rangeBands([height, 0]),
-    z = d3.scale.linear().domain([0, 15]).clamp(true),
-    c = d3.scale.category10().domain(d3.range(10));
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-    
 d3.json("https://api.github.com/SteveFiff/BusMatrixPilotDemo/blob/master/data.json",function(miserables) {
   
     var matrix = [],
@@ -178,13 +143,3 @@ console.log(row)
 ;
 console.log(order)
 })
-</script>
-
-<script>
-
-GoogleAnalyticsObject = "ga", ga = function() { ga.q.push(arguments); }, ga.q = [], ga.l = +new Date;
-ga("create", "UA-48272912-3", "ocks.org");
-ga("send", "pageview");
-
-</script>
-<script async src="http://www.google-analytics.com/analytics.js"></script>
