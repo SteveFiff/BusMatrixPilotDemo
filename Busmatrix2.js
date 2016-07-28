@@ -1,30 +1,11 @@
-<html class="ocks-org do-not-copy">
-<meta charset="utf-8">
-<title>Pilot Busmatrix</title>
-<style>
-
-.background {
-  fill: #fff;
-}
-
-line {
-  stroke: #fff;
-}
-
-text {
- font: 10px sans-serif;
-}
-
-
-</style>
 <script src="https://d3js.org/d3.v3.min.js"></script>
+
 
 
  <h1><i>Busmatrix</i> Demo</h1> 
 
 <aside style="margin-top:80px;">
 <p>Order: <select id="order">
-  <option value="measure">by Name</option>
   <option value="count">by Frequency</option>
   <option value="group">by Cube</option>
 </select>
@@ -51,10 +32,10 @@ var svg = d3.select("body").append("svg")
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-d3.json("data.json",function(miserables) {
+    
+d3.json("https://api.github.com/SteveFiff/BusMatrixPilotDemo/blob/master/data.json",function(miserables) {
   
-  var matrix = [],
+    var matrix = [],
       nodes = miserables.nodes,
       group = nodes.group,
       n = nodes.length
